@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var hbs = require('hbs');
 var fs = require('fs');
+var port = process.env.PORT || 3000
 hbs.registerPartials(__dirname+'/views/partials');
 // app.use((req, res, next)=>{
 //      res.render('maintanance.hbs');
@@ -65,4 +66,7 @@ app.get('/bad', (res, req)=>{
         Error: 'Unable to connect'
     })
 });
-app.listen(3000);
+
+app.listen(port, ()=>{
+    console.log(`server is running on ${port}`);
+});
